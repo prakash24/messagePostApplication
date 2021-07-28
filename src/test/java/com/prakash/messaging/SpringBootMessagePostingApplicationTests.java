@@ -1,10 +1,10 @@
-package com.prakash.interview;
+package com.prakash.messaging;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringBootMessagingApplicationTests {
+class SpringBootMessagePostingApplicationTests {
 
 	@Test
 	void contextLoads() {

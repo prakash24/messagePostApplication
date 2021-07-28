@@ -9,29 +9,26 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.prakash.messaging.model.User;
-import com.prakash.messaging.repository.UserRepository;
+import com.prakash.messaging.service.UserService;
 
 @Controller 
 @RequestMapping(path="/user") 
 public class UserController {
 
 	@Autowired
-	private UserRepository userRepository;
+	private UserService userService;
 
     @PostMapping(path="/add")
     public @ResponseBody String addNewUser (@RequestParam String name
         , @RequestParam String email) {
-
-    	User n = new User();
-    	n.setName(name);
-    	n.setEmail(email);
-    	userRepository.save(n);
+    	userService.addUser(name, email);
     	return "Saved";
     }
 
     @GetMapping(path="/all")
     public @ResponseBody Iterable<User> getAllUsers() {
-        return userRepository.findAll();
+        return userService.findAllUsers();
     }
+    
 
 }
